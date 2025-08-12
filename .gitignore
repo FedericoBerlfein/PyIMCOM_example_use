@@ -8,5 +8,5 @@ psf/*
 psf/logs/*
 
 # But keep the logs directory itself
-!psf/logs/
-.ipynb_checkpoints/
+!psf/logs/.gitkeep
+**/.ipynb_checkpoints/
