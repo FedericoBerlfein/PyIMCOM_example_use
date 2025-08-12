@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/hildafs/projects/phy200017p/berlfein/IMCOM_Notes/run_coadd.py", line 9, in <module>
-    this_sub = int(sys.argv[1])
-                   ^^^
-NameError: name 'sys' is not defined
