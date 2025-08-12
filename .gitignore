@@ -1,12 +1,10 @@
-# Ignore all files in psf/
+
+# Ignore everything inside psf/
 psf/*
 
 # But keep directories
 !psf/**/
 
-# Ignore all files in psf/logs
-psf/logs/*
-
-# But keep the logs directory itself
-!psf/logs/.gitkeep
+# And keep the placeholder file
+!psf/.gitkeep
 **/.ipynb_checkpoints/
