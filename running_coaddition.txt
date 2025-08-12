@@ -1,0 +1,33 @@
+Running actual coadition works in blocks. So if you want to construct a mosaic, you have to run the coaddition for each block. This is usually done in a for loop. Each block then coadds individual stamps. For a nice mosaic on how the hierarchy looks: https://github.com/kailicao/pyimcom/blob/main/docs/hierarchy.rst
+
+So for example if I wanted to run a single block I can run:
+
+import numpy as np
+from pyimcom.config import Config, Settings as Stn
+from pyimcom.coadd import Block
+
+## Run a single block
+
+#cfg = Config(None)
+cfg = Config(cfg_file = 'config_prod_H.json')
+
+blk = Block(cfg=cfg, this_sub=0, run_coadd=True)
+
+
+Where this_sub = 0 indicates the block number. If I have specified BLOCK = 10 in the config, there are 100 blocks to run coaddition. So I would need a for-loop iterating over all the blocks:
+
+for i in range(0,100):
+    blk = Block(cfg=cfg, this_sub=i, run_coadd=True)
+
+You probably want to paralelize this or do something different, but this just to get an idea.
+
+Now the output files for each block with have a format like: "_00_00.fits", where the two number separated by the "_" indicate the block position. Calling the first number in this "ibx" and the second "iby", they are calculated like: 
+
+ibx, iby =divmod(this_sub, nblock)# this_sub is the block number and nblock is the number of blocks (10 in this example).
+
+Such that for each block the output file will look like:  "_ibx_iby.fits".
+Regarding the block position, refer to the left-most mosaic in https://github.com/kailicao/pyimcom/blob/main/docs/hierarchy.rst.
+Block (0,0) will be located in the bottom left corner. Highest RA, lowest DEC
+Block (0,nblock - 1) will be at the top left corner. Highest RA, highest DEC
+Block (nblock - 1, 0) will be at the bottom right corner. Lowest RA, lowest DEC
+block (nblock - 1, nblock - 1) will be at the top right corner. Lowest RA, highest DEC

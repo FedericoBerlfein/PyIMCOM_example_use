@@ -1,0 +1,43 @@
+General notes about running PyIMCOM I noticed:
+
+1. You need to have the one of the sets of simulated science images, either OpenUniverse2024 or Troxel 2023. If you don't have images you can't really run IMCOM as it will look for them.
+
+2. If working with the OU24 sims, note that you can donwload them from AWS but they are very heavy (a lot of files). For small tests I have only run with the preview area which is much smaller and manageable. You can download the preview from AWS as well.
+
+3. IMCOM reads the images with a specific file format (look for something like this in layer.py. Ive changed the names in the {} brackets here for clarity):
+
+out = path+'/simple/Roman_WAS_simple_model_{filter_name}_{observing_id}_{SCA}.fits'
+
+where path is the root directory. However, if you simply download the images from AWS as they come, the directories are organized in a slightly different way:
+
+"/simple/{filter_name}/{observing_id}/Roman_WAS_simple_model_{filter_name}_{observing_id}_{SCA}.fits.gz"
+
+So the after simple the files are actually separated by filter and then observing ID, while the ones IMCOM reads I assume where meant to be read from OSU where they probably reorganized the sims. Also they are simply ".fits" in IMCOM and ".fits.gz" in AWS. So if you are trying to run PyIMCOM youself after simply downloading the images from AWS, you will have to reorganize them to fit the format IMCOM expects or change the code (which is what I did, but probably not recommended). Specifically, I changed the code in layer.py from:
+
+out = path+'/simple/Roman_WAS_simple_model_{:s}_{:d}_{:d}.fits'.format(Stn.RomanFilters[obsdata['filter'][idsca[0]]], idsca[0], idsca[1])
+
+to:
+
+out = path+'/simple/{:s}/{:d}/Roman_WAS_simple_model_{:s}_{:d}_{:d}.fits.gz'.format(
+            Stn.RomanFilters[obsdata['filter'][idsca[0]]],idsca[0],Stn.RomanFilters[obsdata['filter'][idsca[0]]], idsca[0], idsca[1])
+
+In addition, ~line 88 in coadd.py from:
+
+if self.infile[-5:]=='.fits'
+
+to:
+
+if self.infile[-5:]=='.fits' or self.infile[-8:]=='.fits.gz'
+
+I have made both of these changes, but its probably better to simply reorganize them to fit what PyIMCOM expects. 
+
+4. You also need the input PSF to be able to run. You can generate the input PSF images yourself, the code is provided in the "historical" directory in PyIMCOM. I personally decided to make a copy of the code myself and run it outside the IMCOM itself. The reason being that the version in IMCOM saves the psf images to a "psf" directory within pyimcom that you have to make yourself before running. I prefered to do this outside and be able to save the images directly somewhere else, to avoid having to create this temporary subdirectory in IMCOM just to move the images anyway. So the code here called genpsf.py is identical to that inside the directory, so it saves the psf in a directory outside pyimcom. 
+
+5. For actually generating the psf images yourself, I provide the code for generating the PSF for every observation in paralel. See the code "batch_genpsf.py" and the batch script with the same name but ".sh". You need to run this before you can run IMCOM.
+
+6. The input PSFs are created for every observation ID. In here I only produced them for the observations that fall isnide the OU24 preview area and within the wide area survey (from which we have less observations than the deep survey). This can be changed in genpsf.py if you wish to make a different subset of PSFs.
+
+7. Running IMCOM can take a while to run if you have a lot of exposures and a lot of area. The scripts I have here are made to produce a small coadded area, in about 20 -30 mins (depending on your computing resources). 
+
+
+

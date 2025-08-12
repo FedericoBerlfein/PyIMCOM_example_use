@@ -1,0 +1,69 @@
+Config file description (as I understand it):
+
+Numbered elements mean the input is an array, and each number corresponds to the element in the array
+
+OBSFILE: The file containing the observing sequence. E.g. you can get this for the OpenUniverse2024(OU24) simulations
+
+INDATA:
+0: The directory where the single exposure science images live
+1: "anlsim" when you are using OU24 simulations, "dc2sim" when using cosmoDC2 sims from Troxel et al. 2023
+
+CTR: This will be the cooridnates for the center of your mosaic.
+0: The center RA coordinates in degrees
+1: The center DEC coordinates in degrees
+
+BLOCK: How many blocks (vertical and horizontal) to include in mosaic. So for example if this is 10, then the mosaic will be
+10x10 blocks
+
+OUTSIZE: This will determine the size of each block
+0: The number of postage stamps per block. For example if 50, then each block is composed of 50x50 postage stamps
+1: The number of pixels (in the output pixel scale) for each stamp. Example: 20 means each stamp has 20x20 pixels
+3: The size of the output pixels in arcsec. For example 0.039 means each output pixel is 0.039 arcsec
+
+FILTER: Each number represents a filter:
+0 = W146, 1 = F184, 2 = H158, 3 = J129, 4 = Y106 , 5 =Z087, 6 = R062
+
+LAKERNEL: The kernel to use to solve for the matrix T in the coaddition process (see paper for details)."Cholensky" seems to be the prefered option
+
+KAPPAC: The lagrange multiplier for the cholensky decomposition. Increasing this value can help if you have Cholesky decomposition failures. From Kaili: "kappa shifts the balance between PSF fidelity and noise control. Since the detectors have better noise properties than expected, and we want better PSF fidelity for shear measurement, I think large kappa values need to be used with care."
+
+INPSF: 
+0: The directory where the input PSF lives. Each file should have the observing ID in them.
+1: The simulation type, same as INDATA. The "anlsim" and "dc2sim" PSF's are different though. The "anlsim" input PSF has 4 PSF's for each SCA, the 4 PSF's represent the spatial variation across each SCA.
+2: Oversampling factor. By how much is the PSF oversampled compared to the native roman pixel scale. We usually use 8.
+
+NPIXPSF: The coaddition process requires calculating some inner products of the PSF. This determines the size of the arrays to use for that (I think? Not super sure about this one).
+
+INPAD: Padding around the postage stamps (in arcsec). We want to include some information around the postage stamp when coadding. This value tells you how much padding you want.
+
+PADSIDES: Not sure, but it seems like using "all" is ok for most applications.
+
+FADE: Since we are coadding individual postage stamps, the transition between adjacent stamps can be discontinous. This sets a number of pixels around postage stamp to use such that the transition between stamps is smooth.
+
+PAD: The padding around each block. So this is different from INPAD, where that is the padding around each stamp.
+
+EXTRAINPUT: This should be an array of strings with extra layers to coadd. This could be noise, or galaxies/stars in a grid. Basically the layers here get coadded using the same solution as the science layer. These inputs will always follow the science layer (so the indexing starts at 1). To see that different options already built in, look at the layer.py file. 
+
+OUT: Output directory where products will be saved.
+
+OUTMAPS: Saves some of the maps made in the coadding process, such as the leakage and noise for example. Most config files seem to have "USTN".
+
+OUTPSF: The target output PSF type. "GAUSSIAN" seems to be what we will use for real data. There is also an obscured airy option ("AIRYOBSC").
+
+NOUT: Not really sure, but seems like 1 is the default.
+
+EXTRASMOOTH: The size of the PSF (in units of pixels). So this is the 1-sigma size. To get it in arcsec multiply by native pixel scale (0.11).
+
+CMASK: Masking for cosmic rays. Essentially the probability that any given pixel is masked due to cosmic rays.
+
+TEMPFILE: Directory where temporary products are stored. 
+
+INLAYERCACHE: The directory where you can store input layers that are common to the mosaic, this avoids recomputing them.
+
+STOP: If you only want to do the coadding for a number of stamps. If set to zero it does all of them.
+
+
+
+
+
+

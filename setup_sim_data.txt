@@ -1,0 +1,14 @@
+Setting up the simualated data can be a bit challenging at first. Especially if you have never worked with OU24 before. 
+
+To download the data you can go to the documentation of OU24. If you only want the preview data they can be accessed here: https://irsa.ipac.caltech.edu/data/theory/openuniverse2024/roman/
+
+Then you want to download /RomanWAS/images/simple_model folder. What I did was I created a folder called "RomanWAS/images" in my directory and then downloaded the "simple_model" folder into the images directory. This avoids downloading a bunch of data you might not need. If you only want to use the exposures for the wide area, there is a txt file here called "wide-survey-list.txt" containing the exposures in the wide survey. Then for running IMCOM, what I did was create a separate directory in RomanWAS called images_wide, and put symlinks in there to the correspinding observations in the images directory that are only in wide. This avoids duplicating data. The script make_symlinks.py in the scripts folder has the code I used to do this. I had to run it for the H158 and J129 images separetly.
+
+Once this is done and you have to run the batch_genpsf code to generate the input PSFs. The output of running this code should go to the psf folder.
+If you have slurm in your HPC, you can simply run:
+
+sbatch batch_genpsf.sh
+or if you don't, you can simply run the python file:
+python batch_genpsf.py
+
+The code is parallelized so it should be pretty fast. But get the data before running batch_genpsf, as this code will generate the PSF for the observations in a given directory of images, so you first need to have the images. This is only because of my implementation, in theory you could just have a different implementation where it reads the observations you want to create the input PSF from a txt file or something like that.

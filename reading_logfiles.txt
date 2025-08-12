@@ -1,0 +1,345 @@
+The log files can be a bit tricky to understand, here is an example with notes on the side indicating each thing:
+Comments are represented by "##" on the side or above lines. Some lines are self explanatory
+Output of out.txt with log file:
+
+
+General input information:
+number of input frames =  4 type = [None, 'whitenoise1', 'gsstar14', 'cstar14'] ##Input frames. None = science frame, the rest are extrainput frames
+acceptance radius --> 1.240000 arcsec or 31.744000 output pixels ## Acceptance radius set by "PAD" config
+
+Getting observations from ../RomanWAS_preview/Roman_WAS_obseq_11_1_23.fits
+converting filter from names to integers: ['H158' 'H158' 'H158' ... 'H158' 'H158' 'H158']
+Retrieved columns: ['date', 'exptime', 'ra', 'dec', 'pa', 'filter']  16956 rows
+Output information: ctr at RA=  9.000000,DEC=-43.800000 LONPOLE=180.000000
+pixel scale=0.039062 arcsec or 1.08507E-05 degree
+output array size = 2688 (84 postage stamps of 32) ## postage stamp size was 80 and padding 2, so 84 postage stamps of 32 pixels each.
+                                                   ## the size of the coadded block image will then be 2688x2688 pixels  
+sub-block    0 < 0, 0> of 36x36=1296   ## which block is being coadded, and total number of total blocks
+outputs directed to --> ./output/rep/_00_00
+temporary storage directed to --> output/tmp/_0000_20250401172153780874_cache
+
+## These are the center and corners of the block. The order is:
+        ##   2   3
+        ##     4
+        ##   0   1
+
+0 [[  9.69956773 -44.29856601]]
+1 [[  9.65881848 -44.2988064 ]]
+2 [[  9.699222   -44.26940148]]
+3 [[  9.65849289 -44.26964168]]
+4 [[  9.67902528 -44.2841057 ]]
+kappa/C array [0.0006]
+computed overlap, C= [0.00142456]
+
+## List of all the observations available for coadding within range. If marked "x" to the left of "FILE", file was not found in image directory.
+
+67 observations within range (0.10895 deg) filter = 2 (H158)
+The observations -->
+  OBSID SCA  RAWFI    DECWFI   PA     RASCA   DECSCA       FILE (x=missing)
+    773  5   9.9188 -44.0622 170.47   9.6581 -44.1785   ../RomanWAS_preview/images/simple/H158/773/Roman_WAS_simple_model_H158_773_5.fits.gz
+    773  6   9.9188 -44.0622 170.47                   x ../RomanWAS_preview/images/simple/H158/773/Roman_WAS_simple_model_H158_773_6.fits.gz
+    774  5   9.9475 -44.0866 170.44   9.6867 -44.2030   ../RomanWAS_preview/images/simple/H158/774/Roman_WAS_simple_model_H158_774_5.fits.gz
+    774  6   9.9475 -44.0866 170.44                   x ../RomanWAS_preview/images/simple/H158/774/Roman_WAS_simple_model_H158_774_6.fits.gz
+    775  5   9.9761 -44.1110 170.41   9.7153 -44.2275   ../RomanWAS_preview/images/simple/H158/775/Roman_WAS_simple_model_H158_775_5.fits.gz
+    775  6   9.9761 -44.1110 170.41                   x ../RomanWAS_preview/images/simple/H158/775/Roman_WAS_simple_model_H158_775_6.fits.gz
+    775  9   9.9761 -44.1110 170.41                   x ../RomanWAS_preview/images/simple/H158/775/Roman_WAS_simple_model_H158_775_9.fits.gz
+    776  5  10.0048 -44.1353 170.38   9.7440 -44.2519   ../RomanWAS_preview/images/simple/H158/776/Roman_WAS_simple_model_H158_776_5.fits.gz
+    776  9  10.0048 -44.1353 170.38                   x ../RomanWAS_preview/images/simple/H158/776/Roman_WAS_simple_model_H158_776_9.fits.gz
+   4902 13   9.3352 -44.3894 185.27                   x ../RomanWAS_preview/images/simple/H158/4902/Roman_WAS_simple_model_H158_4902_13.fits.gz
+   4902 16   9.3352 -44.3894 185.27                   x ../RomanWAS_preview/images/simple/H158/4902/Roman_WAS_simple_model_H158_4902_16.fits.gz
+   4903 13   9.3550 -44.4135 185.22                   x ../RomanWAS_preview/images/simple/H158/4903/Roman_WAS_simple_model_H158_4903_13.fits.gz
+   4904 13   9.3747 -44.4375 185.17                   x ../RomanWAS_preview/images/simple/H158/4904/Roman_WAS_simple_model_H158_4904_13.fits.gz
+   4906 15   9.3899 -43.9870 185.87   9.6418 -44.2210   ../RomanWAS_preview/images/simple/H158/4906/Roman_WAS_simple_model_H158_4906_15.fits.gz
+   4907 15   9.4092 -44.0111 185.82   9.6615 -44.2449   ../RomanWAS_preview/images/simple/H158/4907/Roman_WAS_simple_model_H158_4907_15.fits.gz
+   4908 15   9.4285 -44.0351 185.77   9.6811 -44.2688   ../RomanWAS_preview/images/simple/H158/4908/Roman_WAS_simple_model_H158_4908_15.fits.gz
+   4909 15   9.4478 -44.0592 185.72                   x ../RomanWAS_preview/images/simple/H158/4909/Roman_WAS_simple_model_H158_4909_15.fits.gz
+   5660 10   9.7052 -44.2136 332.82   9.6437 -44.2762   ../RomanWAS_preview/images/simple/H158/5660/Roman_WAS_simple_model_H158_5660_10.fits.gz
+   5661 10   9.6675 -44.1966 332.84   9.6060 -44.2592   ../RomanWAS_preview/images/simple/H158/5661/Roman_WAS_simple_model_H158_5661_10.fits.gz
+   5662 10   9.6299 -44.1796 332.86   9.5684 -44.2422   ../RomanWAS_preview/images/simple/H158/5662/Roman_WAS_simple_model_H158_5662_10.fits.gz
+   5664 12   9.9260 -44.5561 332.76                   x ../RomanWAS_preview/images/simple/H158/5664/Roman_WAS_simple_model_H158_5664_12.fits.gz
+   5665  3   9.8882 -44.5392 332.78                   x ../RomanWAS_preview/images/simple/H158/5665/Roman_WAS_simple_model_H158_5665_3.fits.gz
+   5665 12   9.8882 -44.5392 332.78                   x ../RomanWAS_preview/images/simple/H158/5665/Roman_WAS_simple_model_H158_5665_12.fits.gz
+   9761 18   9.1288 -44.2283 153.16   9.6460 -44.2061   ../RomanWAS_preview/images/simple/H158/9761/Roman_WAS_simple_model_H158_9761_18.fits.gz
+   9762 15   9.1663 -44.2455 153.13                   x ../RomanWAS_preview/images/simple/H158/9762/Roman_WAS_simple_model_H158_9762_15.fits.gz
+   9762 18   9.1663 -44.2455 153.13   9.6836 -44.2231   ../RomanWAS_preview/images/simple/H158/9762/Roman_WAS_simple_model_H158_9762_18.fits.gz
+   9763 15   9.2039 -44.2627 153.09                   x ../RomanWAS_preview/images/simple/H158/9763/Roman_WAS_simple_model_H158_9763_15.fits.gz
+   9763 18   9.2039 -44.2627 153.09   9.7213 -44.2400   ../RomanWAS_preview/images/simple/H158/9763/Roman_WAS_simple_model_H158_9763_18.fits.gz
+   9764 16   9.3477 -44.5715 152.90                   x ../RomanWAS_preview/images/simple/H158/9764/Roman_WAS_simple_model_H158_9764_16.fits.gz
+   9765 16   9.3856 -44.5886 152.87                   x ../RomanWAS_preview/images/simple/H158/9765/Roman_WAS_simple_model_H158_9765_16.fits.gz
+   9766 16   9.4235 -44.6056 152.84                   x ../RomanWAS_preview/images/simple/H158/9766/Roman_WAS_simple_model_H158_9766_16.fits.gz
+  11823 16   9.1752 -44.5763 164.61                   x ../RomanWAS_preview/images/simple/H158/11823/Roman_WAS_simple_model_H158_11823_16.fits.gz
+  11824 16   9.2071 -44.5975 164.56                   x ../RomanWAS_preview/images/simple/H158/11824/Roman_WAS_simple_model_H158_11824_16.fits.gz
+  11827 18   9.0275 -44.1861 165.12   9.5399 -44.2412   ../RomanWAS_preview/images/simple/H158/11827/Roman_WAS_simple_model_H158_11827_18.fits.gz
+  11828 18   9.0589 -44.2074 165.07   9.5715 -44.2621   ../RomanWAS_preview/images/simple/H158/11828/Roman_WAS_simple_model_H158_11828_18.fits.gz
+  11829 18   9.0903 -44.2287 165.02   9.6032 -44.2831   ../RomanWAS_preview/images/simple/H158/11829/Roman_WAS_simple_model_H158_11829_18.fits.gz
+  11830 18   9.1218 -44.2500 164.97                   x ../RomanWAS_preview/images/simple/H158/11830/Roman_WAS_simple_model_H158_11830_18.fits.gz
+  11860  8  10.1583 -44.1184 164.18   9.7100 -44.2284   ../RomanWAS_preview/images/simple/H158/11860/Roman_WAS_simple_model_H158_11860_8.fits.gz
+  11860  9  10.1583 -44.1184 164.18                   x ../RomanWAS_preview/images/simple/H158/11860/Roman_WAS_simple_model_H158_11860_9.fits.gz
+  11861  8  10.1901 -44.1394 164.13   9.7418 -44.2497   ../RomanWAS_preview/images/simple/H158/11861/Roman_WAS_simple_model_H158_11861_8.fits.gz
+  11862  8  10.2219 -44.1603 164.08   9.7735 -44.2709   ../RomanWAS_preview/images/simple/H158/11862/Roman_WAS_simple_model_H158_11862_8.fits.gz
+  11863  8  10.2538 -44.1813 164.03                   x ../RomanWAS_preview/images/simple/H158/11863/Roman_WAS_simple_model_H158_11863_8.fits.gz
+  13907  4   9.4249 -44.2509   2.70                   x ../RomanWAS_preview/images/simple/H158/13907/Roman_WAS_simple_model_H158_13907_4.fits.gz
+  13908  4   9.4041 -44.2227   2.71                   x ../RomanWAS_preview/images/simple/H158/13908/Roman_WAS_simple_model_H158_13908_4.fits.gz
+  13909  4   9.3833 -44.1945   2.72   9.6633 -44.2664   ../RomanWAS_preview/images/simple/H158/13909/Roman_WAS_simple_model_H158_13909_4.fits.gz
+  14427  1   9.6480 -44.3355   6.02                   x ../RomanWAS_preview/images/simple/H158/14427/Roman_WAS_simple_model_H158_14427_1.fits.gz
+  14427  2   9.6480 -44.3355   6.02   9.7585 -44.2324   ../RomanWAS_preview/images/simple/H158/14427/Roman_WAS_simple_model_H158_14427_2.fits.gz
+  14427 11   9.6480 -44.3355   6.02   9.5702 -44.2182   ../RomanWAS_preview/images/simple/H158/14427/Roman_WAS_simple_model_H158_14427_11.fits.gz
+  14428  1   9.6293 -44.3075   6.02                   x ../RomanWAS_preview/images/simple/H158/14428/Roman_WAS_simple_model_H158_14428_1.fits.gz
+  14428  2   9.6293 -44.3075   6.02   9.7397 -44.2044   ../RomanWAS_preview/images/simple/H158/14428/Roman_WAS_simple_model_H158_14428_2.fits.gz
+  14429  1   9.6106 -44.2796   6.02                   x ../RomanWAS_preview/images/simple/H158/14429/Roman_WAS_simple_model_H158_14429_1.fits.gz
+  16160 11   9.4690 -44.2641 156.10                   x ../RomanWAS_preview/images/simple/H158/16160/Roman_WAS_simple_model_H158_16160_11.fits.gz
+  16160 14   9.4690 -44.2641 156.10   9.7764 -44.2580   ../RomanWAS_preview/images/simple/H158/16160/Roman_WAS_simple_model_H158_16160_14.fits.gz
+  16161 10   9.5052 -44.2825 156.06   9.5715 -44.2225   ../RomanWAS_preview/images/simple/H158/16161/Roman_WAS_simple_model_H158_16161_10.fits.gz
+  16161 11   9.5052 -44.2825 156.06                   x ../RomanWAS_preview/images/simple/H158/16161/Roman_WAS_simple_model_H158_16161_11.fits.gz
+  16161 14   9.5052 -44.2825 156.06                   x ../RomanWAS_preview/images/simple/H158/16161/Roman_WAS_simple_model_H158_16161_14.fits.gz
+  16162 10   9.5415 -44.3009 156.02   9.6078 -44.2408   ../RomanWAS_preview/images/simple/H158/16162/Roman_WAS_simple_model_H158_16162_10.fits.gz
+  16162 11   9.5415 -44.3009 156.02                   x ../RomanWAS_preview/images/simple/H158/16162/Roman_WAS_simple_model_H158_16162_11.fits.gz
+  16163 10   9.5778 -44.3194 155.98   9.6440 -44.2593   ../RomanWAS_preview/images/simple/H158/16163/Roman_WAS_simple_model_H158_16163_10.fits.gz
+  16700 15   9.5641 -44.6205  44.85                   x ../RomanWAS_preview/images/simple/H158/16700/Roman_WAS_simple_model_H158_16700_15.fits.gz
+  16701 12   9.5714 -44.5922  44.83                   x ../RomanWAS_preview/images/simple/H158/16701/Roman_WAS_simple_model_H158_16701_12.fits.gz
+  16701 15   9.5714 -44.5922  44.83   9.5811 -44.2965   ../RomanWAS_preview/images/simple/H158/16701/Roman_WAS_simple_model_H158_16701_15.fits.gz
+  16702 12   9.5787 -44.5639  44.81                   x ../RomanWAS_preview/images/simple/H158/16702/Roman_WAS_simple_model_H158_16702_12.fits.gz
+  16702 15   9.5787 -44.5639  44.81   9.5883 -44.2682   ../RomanWAS_preview/images/simple/H158/16702/Roman_WAS_simple_model_H158_16702_15.fits.gz
+  16947 13   9.9618 -44.3326  44.32   9.6976 -44.2350   ../RomanWAS_preview/images/simple/H158/16947/Roman_WAS_simple_model_H158_16947_13.fits.gz
+  16948 13   9.9687 -44.3042  44.30   9.7046 -44.2067   ../RomanWAS_preview/images/simple/H158/16948/Roman_WAS_simple_model_H158_16948_13.fits.gz
+  16949 13   9.9757 -44.2758  44.27   9.7116 -44.1784   ../RomanWAS_preview/images/simple/H158/16949/Roman_WAS_simple_model_H158_16949_13.fits.gz
+
+
+## The code will not show the input layers made for each relevant observation. These are the input layers specified in EXTRAINPUT.
+## Input image (x,y), where x is the observing ID and y is the SCA. Note that not all observations listed above are relevant to make input layers.
+
+Reading input data ... 
+No permanent mask
+
+input image (775, 5)
+noise rng: frame_q=1, seed=23000775
+making grid using GalSim:  14 (775, 5)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_775.fits 0
+making grid using C routines:  14 (775, 5)
+Cosmic ray mask: good pix -->  16596068 / 16711744
+
+input image (776, 5)
+noise rng: frame_q=1, seed=23000776
+making grid using GalSim:  14 (776, 5)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_776.fits 0
+making grid using C routines:  14 (776, 5)
+Cosmic ray mask: good pix -->  16595775 / 16711744
+
+input image (4906, 15)
+noise rng: frame_q=1, seed=33004906
+making grid using GalSim:  14 (4906, 15)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_4906.fits 0
+making grid using C routines:  14 (4906, 15)
+Cosmic ray mask: good pix -->  16595069 / 16711744
+
+input image (4907, 15)
+noise rng: frame_q=1, seed=33004907
+making grid using GalSim:  14 (4907, 15)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_4907.fits 0
+making grid using C routines:  14 (4907, 15)
+Cosmic ray mask: good pix -->  16596275 / 16711744
+
+input image (4908, 15)
+noise rng: frame_q=1, seed=33004908
+making grid using GalSim:  14 (4908, 15)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_4908.fits 0
+making grid using C routines:  14 (4908, 15)
+Cosmic ray mask: good pix -->  16596890 / 16711744
+
+input image (5660, 10)
+noise rng: frame_q=1, seed=28005660
+making grid using GalSim:  14 (5660, 10)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_5660.fits 0
+making grid using C routines:  14 (5660, 10)
+Cosmic ray mask: good pix -->  16596675 / 16711744
+
+input image (5661, 10)
+noise rng: frame_q=1, seed=28005661
+making grid using GalSim:  14 (5661, 10)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_5661.fits 0
+making grid using C routines:  14 (5661, 10)
+Cosmic ray mask: good pix -->  16595693 / 16711744
+
+input image (5662, 10)
+noise rng: frame_q=1, seed=28005662
+making grid using GalSim:  14 (5662, 10)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_5662.fits 0
+making grid using C routines:  14 (5662, 10)
+Cosmic ray mask: good pix -->  16596412 / 16711744
+
+input image (9762, 18)
+noise rng: frame_q=1, seed=36009762
+making grid using GalSim:  14 (9762, 18)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_9762.fits 0
+making grid using C routines:  14 (9762, 18)
+Cosmic ray mask: good pix -->  16593943 / 16711744
+
+input image (9763, 18)
+noise rng: frame_q=1, seed=36009763
+making grid using GalSim:  14 (9763, 18)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_9763.fits 0
+making grid using C routines:  14 (9763, 18)
+Cosmic ray mask: good pix -->  16596321 / 16711744
+
+input image (11828, 18)
+noise rng: frame_q=1, seed=36011828
+making grid using GalSim:  14 (11828, 18)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_11828.fits 0
+making grid using C routines:  14 (11828, 18)
+Cosmic ray mask: good pix -->  16596326 / 16711744
+
+input image (11829, 18)
+noise rng: frame_q=1, seed=36011829
+making grid using GalSim:  14 (11829, 18)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_11829.fits 0
+making grid using C routines:  14 (11829, 18)
+Cosmic ray mask: good pix -->  16595449 / 16711744
+
+input image (11860, 8)
+noise rng: frame_q=1, seed=26011860
+making grid using GalSim:  14 (11860, 8)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_11860.fits 0
+making grid using C routines:  14 (11860, 8)
+Cosmic ray mask: good pix -->  16596738 / 16711744
+
+input image (11861, 8)
+noise rng: frame_q=1, seed=26011861
+making grid using GalSim:  14 (11861, 8)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_11861.fits 0
+making grid using C routines:  14 (11861, 8)
+Cosmic ray mask: good pix -->  16595285 / 16711744
+
+input image (11862, 8)
+noise rng: frame_q=1, seed=26011862
+making grid using GalSim:  14 (11862, 8)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_11862.fits 0
+making grid using C routines:  14 (11862, 8)
+Cosmic ray mask: good pix -->  16596810 / 16711744
+
+input image (13909, 4)
+noise rng: frame_q=1, seed=22013909
+making grid using GalSim:  14 (13909, 4)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_13909.fits 0
+making grid using C routines:  14 (13909, 4)
+Cosmic ray mask: good pix -->  16596071 / 16711744
+
+input image (14427, 2)
+noise rng: frame_q=1, seed=20014427
+making grid using GalSim:  14 (14427, 2)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_14427.fits 0
+making grid using C routines:  14 (14427, 2)
+Cosmic ray mask: good pix -->  16596817 / 16711744
+
+input image (16160, 14)
+noise rng: frame_q=1, seed=32016160
+making grid using GalSim:  14 (16160, 14)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16160.fits 0
+making grid using C routines:  14 (16160, 14)
+Cosmic ray mask: good pix -->  16594119 / 16711744
+
+input image (16162, 10)
+noise rng: frame_q=1, seed=28016162
+making grid using GalSim:  14 (16162, 10)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16162.fits 0
+making grid using C routines:  14 (16162, 10)
+Cosmic ray mask: good pix -->  16594153 / 16711744
+
+input image (16163, 10)
+noise rng: frame_q=1, seed=28016163
+making grid using GalSim:  14 (16163, 10)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16163.fits 0
+making grid using C routines:  14 (16163, 10)
+Cosmic ray mask: good pix -->  16596988 / 16711744
+
+input image (16701, 15)
+noise rng: frame_q=1, seed=33016701
+making grid using GalSim:  14 (16701, 15)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16701.fits 0
+making grid using C routines:  14 (16701, 15)
+Cosmic ray mask: good pix -->  16593733 / 16711744
+
+input image (16702, 15)
+noise rng: frame_q=1, seed=33016702
+making grid using GalSim:  14 (16702, 15)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16702.fits 0
+making grid using C routines:  14 (16702, 15)
+Cosmic ray mask: good pix -->  16597823 / 16711744
+
+input image (16947, 13)
+noise rng: frame_q=1, seed=31016947
+making grid using GalSim:  14 (16947, 13)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16947.fits 0
+making grid using C routines:  14 (16947, 13)
+Cosmic ray mask: good pix -->  16596684 / 16711744
+
+input image (16948, 13)
+noise rng: frame_q=1, seed=31016948
+making grid using GalSim:  14 (16948, 13)
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16948.fits 0
+making grid using C routines:  14 (16948, 13)
+Cosmic ray mask: good pix -->  16597571 / 16711744
+
+number of input pixels in output region: n_inpix_out = 14205123
+number of input pixels in padding region: n_inpix_pad = 1385112
+
+
+## below is the logs for every postage stamp (x,y). If the Cholensky decomposition fails it will appear here. 
+## The time is the total time, so to calculate the time for each one you have to substract from the previous time. 
+## The percentage is the completed % of the block. The rest are performance statistics about leakage, etc. 
+
+postage stamp  1, 1   0.000% t=   1230.54 s
+INPUT/PSF computation at RA=  9.6996, Dec=-44.2986; using input exposures: [1, 3, 4, 5, 9, 13, 14, 15, 19, 20, 22]
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_776.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_4907.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_4908.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_5660.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_9763.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_11861.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_11862.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_13909.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16163.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16701.fits 0
+ << ../RomanWAS_preview/input_psf/psf_flatsed/psf_polyfit_16947.fits 0
+INPUT/PSF computation at RA=  9.6986, Dec=-44.2986; using input exposures: [1, 3, 4, 5, 9, 13, 14, 15, 19, 20, 22]
+INPUT/PSF computation at RA=  9.6996, Dec=-44.2979; using input exposures: [1, 3, 4, 5, 9, 13, 14, 15, 19, 20, 22]
+INPUT/PSF computation at RA=  9.6986, Dec=-44.2979; using input exposures: [1, 3, 4, 5, 9, 13, 14, 15, 19, 20, 22]
+Cholesky timing ->  0.47  3.21  4.21  4.26  4.30
+  n input pix = 11974
+  sqUC,sqSig %iles | 50% 3.39E-03 2.10E-01 | 90% 4.26E-03 2.16E-01 | 98% 4.79E-03 2.19E-01 | 99% 4.97E-03 2.21E-01 |
+
+postage stamp  2, 1   0.014% t=   1296.04 s
+Cholesky timing ->  0.47  3.25  4.22  4.26  4.28
+  n input pix = 12025
+  sqUC,sqSig %iles | 50% 3.06E-03 2.09E-01 | 90% 4.08E-03 2.16E-01 | 98% 4.61E-03 2.19E-01 | 99% 4.81E-03 2.21E-01 |
+
+postage stamp  1, 2   0.028% t=   1303.04 s
+Cholesky timing ->  0.47  3.24  4.16  4.20  4.22
+  n input pix = 11985
+  sqUC,sqSig %iles | 50% 3.03E-03 2.09E-01 | 90% 3.82E-03 2.15E-01 | 98% 4.43E-03 2.20E-01 | 99% 4.56E-03 2.21E-01 |
+
+postage stamp  2, 2   0.043% t=   1310.99 s
+Cholesky timing ->  0.47  3.12  4.05  4.09  4.11
+  n input pix = 12022
+  sqUC,sqSig %iles | 50% 3.02E-03 2.09E-01 | 90% 4.15E-03 2.17E-01 | 98% 4.60E-03 2.21E-01 | 99% 4.79E-03 2.22E-01 |
+
+postage stamp  3, 1   0.057% t=   1318.84 s
+INPUT/PSF computation at RA=  9.6976, Dec=-44.2986; using input exposures: [1, 3, 4, 5, 9, 13, 14, 15, 19, 20, 22]
+INPUT/PSF computation at RA=  9.6976, Dec=-44.2979; using input exposures: [1, 3, 4, 5, 9, 13, 14, 15, 19, 20, 22]
+Cholesky timing ->  0.47  3.25  4.17  4.22  4.25
+  n input pix = 12017
+  sqUC,sqSig %iles | 50% 2.90E-03 2.09E-01 | 90% 3.54E-03 2.14E-01 | 98% 3.94E-03 2.18E-01 | 99% 4.26E-03 2.19E-01 |
+
+postage stamp  4, 1   0.071% t=   1361.14 s
+Cholesky timing ->  0.47  3.39  4.33  4.37  4.40
+  n input pix = 11993
+  sqUC,sqSig %iles | 50% 3.03E-03 2.09E-01 | 90% 3.79E-03 2.16E-01 | 98% 4.55E-03 2.19E-01 | 99% 4.79E-03 2.20E-01 |
+
+postage stamp  3, 2   0.085% t=   1368.04 s
+Cholesky timing ->  0.47  3.33  4.24  4.28  4.30
+  n input pix = 12010
+  sqUC,sqSig %iles | 50% 2.76E-03 2.08E-01 | 90% 3.63E-03 2.15E-01 | 98% 4.46E-03 2.19E-01 | 99% 4.71E-03 2.20E-01 |
+
+postage stamp  4, 2   0.099% t=   1375.70 s
+Cholesky timing ->  0.47  3.01  3.94  3.99  4.01
+
+## keeps going but cut here. 

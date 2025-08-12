@@ -1,0 +1,4 @@
+  File "/hildafs/projects/phy200017p/berlfein/IMCOM_Notes/scripts/run_coadd.py", line 12
+    cfg = Config(cfg_file = f'../configs/config_prod_{sys.argv[2}.json')
+                                                                       ^
+SyntaxError: f-string: closing parenthesis '}' does not match opening parenthesis '['

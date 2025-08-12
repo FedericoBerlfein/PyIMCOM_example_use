@@ -1,0 +1,11 @@
+# Ignore all files in psf/
+psf/*
+
+# But keep directories
+!psf/**/
+
+# Ignore all files in psf/logs
+psf/logs/*
+
+# But keep the logs directory itself
+!psf/logs/

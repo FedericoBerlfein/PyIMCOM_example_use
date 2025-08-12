@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/hildafs/projects/phy200017p/berlfein/IMCOM_Notes/scripts/run_coadd.py", line 2, in <module>
+    from pyimcom.config import Config, Settings as Stn
+ModuleNotFoundError: No module named 'pyimcom'
