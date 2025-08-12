@@ -7,4 +7,8 @@ psf/*
 
 # And keep the placeholder file
 !psf/.gitkeep
+psf/logs/*
+!psf/logs/
+!psf/logs/.gitkeep
+
 **/.ipynb_checkpoints/
